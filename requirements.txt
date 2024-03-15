@@ -1,4 +1,4 @@
-numpy
-numba
-zarr
-ruff
+numpy==1.23.5
+numba==0.56.4
+zarr==2.12.0
+ruff==0.1.11
