@@ -38,6 +38,14 @@ If you truly need the artifact version (instead of the current version of SCARR)
 python3 -m pip install .
 ```
 
+Please note: the reference OS for this artifact is Ubuntu 22.04 LTS with its default Python 3.10. Additionally, the following dependencies are installed:
+
+* numpy==1.23.5
+* numba==0.56.4
+* zarr[jupyter]==2.12.0
+* ruff==0.1.11
+* matplotlib==3.6.3
+
 # Usage Warning
 
 Some computations in SCARR can push your hardware to its limits and beyond. Caution is advised when running sustained compute loads as many consumer-grade hardware is not made for this. Especially for laptops, please take into account the best practices under [USAGE.md](https://github.com/decryptofy/scarr/blob/main/USAGE.md). Additionally, SCARR does not do any memory-checking. When attempting computations that exceed the available memory, then based on OS-level settings, SCARR or other applications may be terminated by the OS, resulting in potential data loss. During heavy computations, it is time for coffee, as you cannot use your computer for anything else but SCARR. See also: [DISCLAIMER.md](https://github.com/decryptofy/scarr/blob/main/DISCLAIMER.md)
@@ -73,20 +81,19 @@ SCARR only works with its native format and we have no plans to support other fi
 
 SCARR is developed with High-Performance Computing (HPC) considerations in mind. Optimum performance can rely on many aspects of its configuration and the underlying platform. The default batch size (the number of traces processed in parallel at a given point in time) is 5000. Depending on the platform and chosen analysis, other values between 1000 and 10000 may give better results. Please also take into account the following:
 
-* We recommend CPUs with 8 or more physical cores, preferably with AVX512
+* We recommend CPUs with 8 or more physical (performance) cores, preferably with AVX512
 * SCARR is optimized for CPUs with SMT (Hyper-Threading); otherwise, mp.pool parameters are not optimal
 * A combination of performance and efficiency cores is not specifically considered in mp.pool either
+* Fast, low-latency memory should be used (e.g., DDR5-6400 and CL < 32)
 * SCARR should *not* be used on NUMA platforms as this degrades performance in unexpected ways
-* SCARR is only designed to run on Linux/Unix as it relies on fork; Windows is *not* supported
-* ulimits need to be adjusted when processing many tiles/byte-positions at the same time
+* SCARR is designed to run on Linux/Unix; Windows may work but is *not* supported
+* *ulimits need to be adjusted when processing many tiles/byte-positions at the same time*
 
 # Contributing (inbound=outbound)
 
-We want to keep this a no-nonsense project and promote contributions, while minimizing risks to the well-being of the project. If you would like to contribute bug fixes, improvements, and new features back to SCARR, please take a look at our [Contributor Guide](https://github.com/decryptofy/scarr/blob/main/CONTRIBUTING.md) to see how you can participate in this open source project.
+This section does not apply, as we do not accept pull requests for this artifact. Instead, please check:
 
-Consistent with Section D.6. of the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) as of November 16, 2020, and the [Mozilla Public License, v. 2.0.](https://www.mozilla.org/en-US/MPL/2.0/), the project maintainer for this project accepts contributions using the inbound=outbound model. When you submit a pull request to this repository (inbound), you are agreeing to license your contribution under the same terms as specified under [License](https://github.com/decryptofy/scarr/blob/main/README.md#license) (outbound).
-
-Note: this is modeled after the terms for contributing to [Ghidra](https://github.com/NationalSecurityAgency/ghidra/blob/master/CONTRIBUTING.md).
+**SCARR active development repository [click here](https://github.com/decryptofy/scarr)**
 
 # License
 
@@ -108,10 +115,10 @@ Copyright for SCARR (2023-2024) by Vincent Immler.
 # Citation
 
 If you use SCARR in your research, please cite our paper:
-"High-Performance Design Patterns and File Formats for Side-Channel Analysis" by Jonah Bosland, Stefan Ene, Peter Baumgartner, Vincent Immler
-to appear at CHES 2024
+"High-Performance Design Patterns and File Formats for Side-Channel Analysis" by Jonah Bosland, Stefan Ene, Peter Baumgartner, Vincent Immler.
+IACR Transactions on Cryptographic Hardware and Embedded Systems, 2024(2), 769–794.
 
-DOI: to be added
+DOI: [click here](https://doi.org/10.46586/tches.v2024.i2.769-794)
 
 # Acknowledgements
 
