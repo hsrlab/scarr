@@ -45,6 +45,9 @@ Please note: the reference OS for this artifact is Ubuntu 22.04 LTS with its def
 * zarr[jupyter]==2.12.0
 * ruff==0.1.11
 * matplotlib==3.6.3
+* scipy==1.10.0
+
+Alternatively, you can run SCARR in a virtual environment. This type of setup is considered for [benchmarking](https://github.com/hsrlab/scarr-comparison) to reproduce the results from our paper.
 
 # Usage Warning
 
