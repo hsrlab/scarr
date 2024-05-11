@@ -6,11 +6,20 @@ If you want to use the current version of our software, please use the linked re
 
 **SCARR active development repository [click here](https://github.com/decryptofy/scarr)**
 
-**SCARR active development repository [click here](https://github.com/decryptofy/scarr)**
+# Note on Artifact and Benchmark Results
 
-**SCARR active development repository [click here](https://github.com/decryptofy/scarr)**
+The official result of the CHES artifact review process is "IACR CHES Artifacts Functional" which is consistent with the badge we applied for. During the review process, we had a reviewer ask for full reproducibility of all benchmark results to grant us this badge. This reviewer performed the same comparison of all tested frameworks as in the paper using the following benchmark environment:
 
-Note on benchmark results: unfortunately, after the camera ready paper deadline, a firmware update (UEFI: 1.26 / ECP: 1.18) was installed on the Lenovo X1 Extreme Gen 4 (i7-11800H with RTX 3060) that we used for benchmarking. This update substantially improved thermal management and all tested frameworks consistently perform better. Their relative performance to each other is still accurately reflected by the results in our paper though.
+* AMD Ryzen Threadripper 3990X 64-Core with 256 GB RAM
+* Ubuntu 22.04 with Python 3.10
+
+This reviewer concludes: "_The results are consistent with the ones in the paper (taking into account the hardware differences)._"
+
+However, IACR is unable to host large data sets on their server. In addition, external hosting by the library of Oregon State University (with DOI) is not acceptable to them for the purpose of hosting the artifact. Consequently, we point out the limitations of the official CHES artifact which is only for the functionality of SCARR itself. However, as mentioned beforehand, a reviewer reproduced the benchmark results in the paper and we thank this reviewer for taking on this additional effort.
+
+If researchers want to reproduce the benchmarks results, please see [here](https://github.com/hsrlab/scarr-comparison).
+
+Additional note on benchmark results: after the camera ready paper deadline, a firmware update (UEFI: 1.26 / ECP: 1.18) was installed on the Lenovo X1 Extreme Gen 4 (i7-11800H with RTX 3060) that we primarily used for benchmarking. This update substantially improved thermal management and all tested frameworks consistently perform better (mainly for Profile 2). Their relative performance to each other is still accurately reflected by the results in our paper though.
 
 # SCARR
 
@@ -30,7 +39,7 @@ SCARR is designed to support the following:
 
 SCARR also aims at maximizing I/O efficiency, including the asynchronous prefetch of (compressed) data sets.
 
-# Install CHES 2024 Artifact
+# Installing CHES 2024 Artifact from GitHub
 
 If you truly need the artifact version (instead of the current version of SCARR), please clone the repository and install from your local copy using:
 
@@ -109,7 +118,6 @@ SCARR was initiated and designed by Vincent Immler out of a necessity to support
 
 Additional contributions by (new authors, add yourself here):
 * Matt Ruff
-* to be added
 
 # Copyright
 
